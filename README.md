@@ -127,11 +127,11 @@ Bits Críticos en EECR:
 * EEPE: Habilitación de escritura.
 * EERE: Habilitación de lectura.
 
-
 ### Referencias
 
-* Arduino Documentation: "A guide to EEPROM" (Revisión 19/06/2024).
-* Atmel Datasheet Summary: "ATmega48A/PA/88A/PA/168A/PA/328/P - 8-bit Microcontroller".
-* Arduino Forum: "Official EEPROM library: support and reference" por Christopher Andrews (pYro_65).
-* Arduino Forum: "EEPROM.write vs EEPROM.update" y "How to use Clear Eeprom sketch on a Mega".
-* Arduino Forum: "I don't understand the part of EEPROM tutorial" (Explicación de potencias de dos y wrapping).
+*   **Andrews, C. [pYro_65].** (2015, 1 de abril). *Official EEPROM library: support and reference* [Hilo de foro]. Arduino Forum..
+*   **Arduino.** (2024, 19 de junio). *A guide to EEPROM*. Arduino Documentation..
+*   **Atmel Corporation.** (2014). *ATmega48A, ATmega48PA, ATmega88A, ATmega88PA, ATmega168A, ATmega168PA, ATmega328, ATmega328P datasheet summary* (Rev. 8271IS-AVR-10/2014)..
+*   **captain_morgan_1999.** (2016, 9 de diciembre). *EEPROM.write vs EEPROM.update* [Hilo de foro]. Arduino Forum..
+*   **F1.** (2018, 17 de agosto). *I don't understand the part of EEPROM tutorial* [Hilo de foro]. Arduino Forum..
+*   **HugoW.** (2022, 9 de enero). *How to use Clear Eeprom sktech on a Mega* [Hilo de foro]. Arduino Forum..
