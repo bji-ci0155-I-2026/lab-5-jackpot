@@ -1,5 +1,24 @@
 # lab-5-jackpot
 
+#### Texto sencillo
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Hello World](https://www.tinkercad.com/things/cIjcsSK1FTP-laboratorio-4-liquid-crystal-display-lcd-hello-world?sharecode=g8UwlarT3QCvULCgqoQ0eayPNNs1qK-MCkgNnNc4xHk)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
+#### Texto scrolling
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Autoscroll](https://www.tinkercad.com/things/cih2mpGdvnV-laboratorio-4-liquid-crystal-display-lcd-autoscroll?sharecode=WtUM4_9ktNBCt_ETgbniWzJcT_eFNPF8749XIPibCFY)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
+
+#### Animaciones
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Casino](https://www.tinkercad.com/things/dqve9ozAi33-laboratorio-4-liquid-crystal-display-lcd-casino?sharecode=3_SfphVUupbPQ_M8Ji9SK-Rcx6fAe9pp9RoYP-7b-BE)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
 ## Guía Técnica de Memoria EEPROM en Microcontroladores AVR y Arduino
 
 1. Fundamentos Teóricos y Arquitectura
