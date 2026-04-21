@@ -146,6 +146,32 @@ Bits Críticos en EECR:
 * EEPE: Habilitación de escritura.
 * EERE: Habilitación de lectura.
 
+## Investigación del Jackpot
+
+Los sistemas de jackpot en tragamonedas (slot machines) suelen funcionar bajo el concepto de jackpot progresivo, donde el premio acumulado aumenta conforme los jugadores participan sin ganar el premio máximo. Según se describe en fuentes como Progressive Jackpot (Wikipedia), cada apuesta contribuye al incremento del premio, el cual se reinicia una vez que un jugador obtiene la combinación ganadora.
+
+También, las tragamonedas modernas no utilizan probabilidades uniformes para todos los resultados. Tal como explica How Slot Machines Work (HowStuffWorks), los símbolos tienen diferentes probabilidades de aparición, siendo los de mayor valor menos frecuentes. Esto se implementa mediante generadores pseudoaleatorios (RNG), los cuales determinan el resultado de cada jugada.
+
+En este proyecto, se implementa una versión simplificada de estas técnicas en un sistema empotrado utilizando Arduino. El jackpot aumenta cada vez que el jugador pierde y su valor se almacena en memoria EEPROM, lo que permite mantener el estado incluso si el dispositivo se reinicia. Asimismo, la probabilidad de obtener el premio mayor puede ajustarse dinámicamente en función del valor acumulado del jackpot, con el objetivo de simular un sistema con comportamiento dependiente del estado interno.
+
+De esta manera, el diseño integra conceptos clave como jackpot progresivo, probabilidades no uniformes, generación pseudoaleatoria y memoria persistente, adaptados a un entorno de sistemas empotrados.
+
+El desglose del posible diseño sería este (sujeto a cambios):
+
+**Reglas:**
+- Se generan sólo números del 1 al 7
+- El jackpot aumenta en 1 por cada vez que alguien juega y pierde (eeprom)
+- El jackpot se resetea si alguien gana (eeprom)
+- Entre más grande el jackpot, más posibilidades de ganar
+- Existen más posibilidades para 123456 y menos para el 7
+- 
+**Premios:**
+- Secuencia (1 2 3, 3 4 5) → premio pequeño
+- Dos iguales ( 1 2 2, 4 1 1) → premio pequeño
+- Tres iguales ( 3 3 3, 5 5 5) → premio grande
+- Tres sietes (7 7 7) → jackpot 
+
+
 ### Referencias
 
 *   **Andrews, C. [pYro_65].** (2015, 1 de abril). *Official EEPROM library: support and reference* [Hilo de foro]. Arduino Forum..
@@ -154,3 +180,7 @@ Bits Críticos en EECR:
 *   **captain_morgan_1999.** (2016, 9 de diciembre). *EEPROM.write vs EEPROM.update* [Hilo de foro]. Arduino Forum..
 *   **F1.** (2018, 17 de agosto). *I don't understand the part of EEPROM tutorial* [Hilo de foro]. Arduino Forum..
 *   **HugoW.** (2022, 9 de enero). *How to use Clear Eeprom sktech on a Mega* [Hilo de foro]. Arduino Forum..
+*   to, C. (2005, April 20). gambling prize that increases. Wikipedia.Org; Wikimedia Foundation, Inc. https://en.wikipedia.org/wiki/Progressive_jackpot
+*   T. Harris, “How Slot Machines Work,” HowStuffWorks, Feb. 26, 2002. https://entertainment.howstuffworks.com/slot-machine.htm (accessed Apr. 21, 2026).
+‌
+‌
