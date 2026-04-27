@@ -18,6 +18,16 @@ De acuerdo con los datasheets de Atmel y la documentación de Arduino, las carac
 
 Dado que los tamaños son potencias de dos, es posible prevenir desbordamientos de direcciones mediante una operación de bits AND con el valor de longitud - 1. Por ejemplo, si la longitud es 1024 `(0b10000000000)`, la máscara será 1023 `(0b0111111111)`. Al aplicar un AND bitwise entre cualquier dirección y 1023, una dirección inválida como 1024 volverá automáticamente a 0, asegurando que siempre se acceda a un rango válido.
 
+### Mapas de Memoria
+
+**Circuit Playground Classic (ATmega32u4)**
+
+![Mapa de memoria ATmega32u4](./media/atmega32u4_memory_map.svg)
+
+**Arduino Uno R3 (ATmega328P)**
+
+![Mapa de memoria ATmega328P](./media/atmega328p_memory_map.svg)
+
 ### Hardware y Capacidades por Dispositivo
 
 Los microcontroladores de la familia AVR (ATmega48A/PA/88A/PA/168A/PA/328/P) varían principalmente en sus capacidades de memoria.

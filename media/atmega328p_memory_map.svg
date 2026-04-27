@@ -1,0 +1,145 @@
+<svg width="100%" viewBox="0 0 700 820" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Mapa de memoria ATmega328P</title>
+  <desc>Diagrama mostrando Flash, SRAM y EEPROM del ATmega328P con sus regiones internas y funciones de medicion</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════
+       FLASH  (32 KB)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Header -->
+  <rect x="40" y="30" width="180" height="24" rx="6" fill="rgb(12, 68, 124)" stroke="rgb(133, 183, 235)" stroke-width="0.5"/>
+  <text x="130" y="42" text-anchor="middle" dominant-baseline="central" fill="rgb(181, 212, 244)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Flash  (32 KB)</text>
+
+  <!-- Tabla de Vectores -->
+  <rect x="40" y="58" width="180" height="40" fill="rgb(10, 55, 100)" stroke="rgb(100, 160, 220)" stroke-width="0.5"/>
+  <text x="130" y="73" text-anchor="middle" dominant-baseline="central" fill="rgb(160, 200, 240)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">Vectores de Interrupcion</text>
+  <text x="130" y="89" text-anchor="middle" dominant-baseline="central" fill="rgb(100, 160, 220)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">26 × 2 bytes</text>
+
+  <!-- 0x0000 label -->
+  <text x="36" y="66" text-anchor="end" fill="rgb(140, 138, 130)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">0x0000</text>
+
+  <!-- .text (Sketch code) -->
+  <rect x="40" y="98" width="180" height="100" fill="rgb(8, 80, 65)" stroke="rgb(93, 202, 165)" stroke-width="0.5"/>
+  <text x="130" y="130" text-anchor="middle" dominant-baseline="central" fill="rgb(159, 225, 203)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Sketch (.text)</text>
+  <text x="130" y="150" text-anchor="middle" dominant-baseline="central" fill="rgb(93, 202, 165)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">codigo + strings F()</text>
+  <text x="130" y="168" text-anchor="middle" dominant-baseline="central" fill="rgb(93, 202, 165)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">~3,808 bytes (11%)</text>
+
+  <!-- flecha getFlashUsedBytes -->
+  <line x1="222" y1="148" x2="290" y2="148" marker-end="url(#arrow)" stroke="rgb(156, 154, 146)" stroke-width="1.5"/>
+  <text x="298" y="140" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">getFlashUsedBytes()</text>
+  <text x="298" y="156" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">escanea con pgm_read_word()</text>
+  <text x="298" y="172" fill="rgb(150, 148, 140)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">busca ultima word != 0xFFFF</text>
+
+  <!-- Libre Flash -->
+  <rect x="40" y="198" width="180" height="70" fill="none" stroke="rgba(222, 220, 209, 0.15)" stroke-width="0.5" stroke-dasharray="6 3"/>
+  <text x="130" y="226" text-anchor="middle" dominant-baseline="central" fill="rgb(120, 118, 110)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="400">libre (~28,448 B)</text>
+  <text x="130" y="246" text-anchor="middle" dominant-baseline="central" fill="rgb(90, 88, 82)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">relleno 0xFFFF</text>
+
+  <!-- Bootloader -->
+  <rect x="40" y="268" width="180" height="44" fill="rgb(68, 68, 65)" stroke="rgb(180, 178, 169)" stroke-width="0.5"/>
+  <text x="130" y="290" text-anchor="middle" dominant-baseline="central" fill="rgb(211, 209, 199)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Bootloader (512 B)</text>
+
+  <!-- 0x7FFF label -->
+  <text x="36" y="298" text-anchor="end" fill="rgb(140, 138, 130)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">0x7FFF</text>
+
+
+  <!-- ═══════════════════════════════════════════
+       SRAM  (2 KB)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Header -->
+  <rect x="40" y="342" width="180" height="24" rx="6" fill="rgb(60, 52, 137)" stroke="rgb(175, 169, 236)" stroke-width="0.5"/>
+  <text x="130" y="354" text-anchor="middle" dominant-baseline="central" fill="rgb(206, 203, 246)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">SRAM  (2048 B)</text>
+
+  <!-- Registros + IO -->
+  <rect x="40" y="370" width="180" height="28" fill="rgb(50, 44, 115)" stroke="rgb(145, 139, 206)" stroke-width="0.5"/>
+  <text x="130" y="384" text-anchor="middle" dominant-baseline="central" fill="rgb(175, 169, 236)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">Registros + I/O (0x00–0xFF)</text>
+
+  <!-- 0x0100 label -->
+  <text x="36" y="406" text-anchor="end" fill="rgb(140, 138, 130)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">0x0100</text>
+
+  <!-- .data -->
+  <rect x="40" y="398" width="180" height="34" fill="rgb(68, 68, 65)" stroke="rgb(180, 178, 169)" stroke-width="0.5"/>
+  <text x="130" y="415" text-anchor="middle" dominant-baseline="central" fill="rgb(180, 178, 169)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">.data  (globals inicializadas)</text>
+
+  <!-- .bss -->
+  <rect x="40" y="432" width="180" height="34" fill="rgb(68, 68, 65)" stroke="rgb(180, 178, 169)" stroke-width="0.5"/>
+  <text x="130" y="449" text-anchor="middle" dominant-baseline="central" fill="rgb(180, 178, 169)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">.bss  (globals = 0)</text>
+
+  <!-- flecha getSramUsedStatic -->
+  <line x1="222" y1="432" x2="290" y2="432" marker-end="url(#arrow)" stroke="rgb(156, 154, 146)" stroke-width="1.5"/>
+  <text x="298" y="424" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">getSramUsedStatic()</text>
+  <text x="298" y="440" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">__bss_end − __data_start</text>
+  <text x="298" y="456" fill="rgb(150, 148, 140)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">= 196 bytes</text>
+
+  <!-- __heap_start label -->
+  <line x1="40" y1="466" x2="220" y2="466" stroke="rgba(222, 220, 209, 0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="36" y="464" text-anchor="end" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">__heap_start</text>
+
+  <!-- Heap -->
+  <rect x="40" y="468" width="180" height="48" fill="rgb(113, 43, 19)" stroke="rgb(240, 153, 123)" stroke-width="0.5"/>
+  <text x="130" y="486" text-anchor="middle" dominant-baseline="central" fill="rgb(245, 196, 179)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Heap ↓</text>
+  <text x="130" y="504" text-anchor="middle" dominant-baseline="central" fill="rgb(240, 153, 123)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">malloc / new</text>
+
+  <!-- __brkval label -->
+  <line x1="40" y1="516" x2="220" y2="516" stroke="rgb(216, 90, 48)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="36" y="514" text-anchor="end" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">__brkval ↑</text>
+
+  <!-- flecha getSramUsedHeap -->
+  <line x1="222" y1="492" x2="290" y2="492" marker-end="url(#arrow)" stroke="rgb(156, 154, 146)" stroke-width="1.5"/>
+  <text x="298" y="484" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">getSramUsedHeap()</text>
+  <text x="298" y="500" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">__brkval − __heap_start</text>
+  <text x="298" y="516" fill="rgb(150, 148, 140)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">= 0 bytes (sin malloc)</text>
+
+  <!-- GAP = SRAM libre -->
+  <rect x="40" y="518" width="180" height="70" fill="none" stroke="rgba(222, 220, 209, 0.15)" stroke-width="0.5" stroke-dasharray="6 3"/>
+  <text x="130" y="546" text-anchor="middle" dominant-baseline="central" fill="rgb(250, 249, 245)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">GAP = SRAM libre</text>
+  <text x="130" y="566" text-anchor="middle" dominant-baseline="central" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">lo mide getSramFree()</text>
+
+  <!-- flecha getSramFree -->
+  <line x1="222" y1="553" x2="290" y2="553" marker-end="url(#arrow)" stroke="rgb(156, 154, 146)" stroke-width="1.5"/>
+  <text x="298" y="545" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">getSramFree()</text>
+  <text x="298" y="561" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">&amp;stackMarker − heapTop</text>
+  <text x="298" y="577" fill="rgb(150, 148, 140)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">= 1,845 bytes</text>
+
+  <!-- Stack -->
+  <rect x="40" y="590" width="180" height="52" fill="rgb(99, 56, 6)" stroke="rgb(239, 159, 39)" stroke-width="0.5"/>
+  <text x="130" y="608" text-anchor="middle" dominant-baseline="central" fill="rgb(250, 199, 117)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Stack ↑</text>
+  <text x="130" y="628" text-anchor="middle" dominant-baseline="central" fill="rgb(239, 159, 39)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">&amp;stackMarker vive aqui</text>
+
+  <!-- SP (tope) -->
+  <line x1="40" y1="642" x2="220" y2="642" stroke="rgb(186, 117, 23)" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="36" y="640" text-anchor="end" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">SP (0x08FF)</text>
+
+
+  <!-- ═══════════════════════════════════════════
+       EEPROM  (1 KB)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Header -->
+  <rect x="40" y="680" width="180" height="24" rx="6" fill="rgb(39, 80, 10)" stroke="rgb(151, 196, 89)" stroke-width="0.5"/>
+  <text x="130" y="692" text-anchor="middle" dominant-baseline="central" fill="rgb(192, 221, 151)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">EEPROM  (1024 B)</text>
+
+  <!-- Usada -->
+  <rect x="40" y="708" width="90" height="34" fill="rgb(68, 68, 65)" stroke="rgb(180, 178, 169)" stroke-width="0.5"/>
+  <text x="85" y="725" text-anchor="middle" dominant-baseline="central" fill="rgb(180, 178, 169)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">usada (!= 0xFF)</text>
+
+  <!-- Libre -->
+  <rect x="130" y="708" width="90" height="34" fill="rgb(8, 80, 65)" stroke="rgb(93, 202, 165)" stroke-width="0.5"/>
+  <text x="175" y="725" text-anchor="middle" dominant-baseline="central" fill="rgb(93, 202, 165)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">libre (0xFF)</text>
+
+  <!-- Ciclos de vida -->
+  <text x="130" y="762" text-anchor="middle" dominant-baseline="central" fill="rgb(120, 118, 110)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">~100,000 ciclos W/E por celda</text>
+
+  <!-- flecha getEepromUsedBytes -->
+  <line x1="222" y1="725" x2="290" y2="725" marker-end="url(#arrow)" stroke="rgb(156, 154, 146)" stroke-width="1.5"/>
+  <text x="298" y="717" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">getEepromUsedBytes()</text>
+  <text x="298" y="733" fill="rgb(194, 192, 182)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400">cuenta celdas != 0xFF</text>
+  <text x="298" y="749" fill="rgb(150, 148, 140)" font-family="'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="400">= 0 en tu placa</text>
+
+</svg>
