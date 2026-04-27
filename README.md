@@ -1,77 +1,5 @@
 # lab-5-jackpot
 
-## Simulacion
-
-#### Componentes utilizados
-
-Para explicar los componentes untilizados se usa la defincion de la pagina de Tinkercad la cual se basa en referencias de Adafruit que es un sitio confiable para aprender sobre electronica.
-
-Segun se cita en la pagina de Tinkercad el LCD 16xd I2C es:
-
-
-> LCD 16 x 2 (I2C)
-> 
-> Description:
-> This device is a Liquid Crystal Display capable of displaying two lines of text, 16 characters each. This version also has a driver board that uses fewer outputs on its connected microntrontroller.
-> 
-> How it works:
-> LCDs contain many layers of materials. There’s an LED backlight, as well as a sandwich of polarized glass around liquid crystals, which can electronically rotate the polarized light to allow the backlight to pass through and be seen, or be blocked by the polarizer on top.
-> 
-> How to connect:
-> This device has four wire leads. Connect the VCC pin to your Arduino 5V, GND pin to any GND terminal on an Arduino. The SDA and SCL pins connect each to their respective I2C pins on the Arduino.
-> 
-> References:
-> I2C/SPI LCD Backpack guide (adafruit.com)
-> Adafruit I2C/SPI LCD Backpack PCB on github (adafruit-i2c-spi-lcd-backpack-pcb)
-
-
-Para nuestro laboratorio simulado usamos la siguiente distribucion de componentes:
-
-![alt text](./media/image.png)
-
-Como se puede observar se manejan 3 LCDs con microprosesadores MCP23008-based tipo I2C con 4 conectores cada uno.
-
-Se hizo este diseno para mostrar la arquitectura multi aprendiz-maestro que tiene el protocolo.
-
-Además se utilizó la siguiente distribución de conexiones de circuitos siguiendo la guía de arduino.
-
-The circuit:
-* 5V to Arduino 5V pin
-* GND to Arduino GND pin
-* SCL to Digital: Micro PC5 or D19/SCL
-* SDA to Digital: Micro PC4 or D18/SDA
-
-Lo anterior para los 3 LCDs. Tambien hay que detallar que se siguió según la lectura de la clase el patron de Pull-up resistors para los buses I2C a los diferentes aprendices; en este caso los 3 LCDs. Lo podemos observar en la siguiente imagen:
-
-![alt text](./media/pullup.png)
-
-La programación fue siguiendo el ejemplo de codigo en Tinkercad para el LCD I2C, mas el codigo previo de laboratorio 4 de los LCDs sin I2C. 
-
-Se tuvo que have uso de millis para sincronizar los LCDs dado que alguno de ellos incluia delays que atrasaban las funciones de otros LCDs.
-
-Se logró para los de texto sencillo y scrolling quitar esta limtante al usar uso de millis y una maquina de estados. Se puede ver mejor en el codigo y en el video.
-
-Por el lado de LCD de animaciones es mucho mas complejo de implementar con millis, por lo que se dejo asi por el momento hasta que tengamos mas conocimiento como hacer uso de funciones asincronicas con un solo maestro.
-
-#### Texto sencillo
-
-Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Hello World](https://www.tinkercad.com/things/cIjcsSK1FTP-laboratorio-4-liquid-crystal-display-lcd-hello-world?sharecode=g8UwlarT3QCvULCgqoQ0eayPNNs1qK-MCkgNnNc4xHk)
-
-Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
-
-#### Texto scrolling
-
-Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Autoscroll](https://www.tinkercad.com/things/cih2mpGdvnV-laboratorio-4-liquid-crystal-display-lcd-autoscroll?sharecode=WtUM4_9ktNBCt_ETgbniWzJcT_eFNPF8749XIPibCFY)
-
-Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
-
-
-#### Animaciones
-
-Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Casino](https://www.tinkercad.com/things/dqve9ozAi33-laboratorio-4-liquid-crystal-display-lcd-casino?sharecode=3_SfphVUupbPQ_M8Ji9SK-Rcx6fAe9pp9RoYP-7b-BE)
-
-Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
-
 ## Guía Técnica de Memoria EEPROM en Microcontroladores AVR y Arduino
 
 1. Fundamentos Teóricos y Arquitectura
@@ -198,6 +126,79 @@ Bits Críticos en EECR:
 * EEMPE: Habilitación maestra de escritura.
 * EEPE: Habilitación de escritura.
 * EERE: Habilitación de lectura.
+
+## Simulacion
+
+#### Componentes utilizados
+
+Para explicar los componentes untilizados se usa la defincion de la pagina de Tinkercad la cual se basa en referencias de Adafruit que es un sitio confiable para aprender sobre electronica.
+
+Segun se cita en la pagina de Tinkercad el LCD 16xd I2C es:
+
+
+> LCD 16 x 2 (I2C)
+> 
+> Description:
+> This device is a Liquid Crystal Display capable of displaying two lines of text, 16 characters each. This version also has a driver board that uses fewer outputs on its connected microntrontroller.
+> 
+> How it works:
+> LCDs contain many layers of materials. There’s an LED backlight, as well as a sandwich of polarized glass around liquid crystals, which can electronically rotate the polarized light to allow the backlight to pass through and be seen, or be blocked by the polarizer on top.
+> 
+> How to connect:
+> This device has four wire leads. Connect the VCC pin to your Arduino 5V, GND pin to any GND terminal on an Arduino. The SDA and SCL pins connect each to their respective I2C pins on the Arduino.
+> 
+> References:
+> I2C/SPI LCD Backpack guide (adafruit.com)
+> Adafruit I2C/SPI LCD Backpack PCB on github (adafruit-i2c-spi-lcd-backpack-pcb)
+
+
+Para nuestro laboratorio simulado usamos la siguiente distribucion de componentes:
+
+![alt text](./media/image.png)
+
+Como se puede observar se manejan 3 LCDs con microprosesadores MCP23008-based tipo I2C con 4 conectores cada uno.
+
+Se hizo este diseno para mostrar la arquitectura multi aprendiz-maestro que tiene el protocolo.
+
+Además se utilizó la siguiente distribución de conexiones de circuitos siguiendo la guía de arduino.
+
+The circuit:
+* 5V to Arduino 5V pin
+* GND to Arduino GND pin
+* SCL to Digital: Micro PC5 or D19/SCL
+* SDA to Digital: Micro PC4 or D18/SDA
+
+Lo anterior para los 3 LCDs. Tambien hay que detallar que se siguió según la lectura de la clase el patron de Pull-up resistors para los buses I2C a los diferentes aprendices; en este caso los 3 LCDs. Lo podemos observar en la siguiente imagen:
+
+![alt text](./media/pullup.png)
+
+La programación fue siguiendo el ejemplo de codigo en Tinkercad para el LCD I2C, mas el codigo previo de laboratorio 4 de los LCDs sin I2C. 
+
+Se tuvo que have uso de millis para sincronizar los LCDs dado que alguno de ellos incluia delays que atrasaban las funciones de otros LCDs.
+
+Se logró para los de texto sencillo y scrolling quitar esta limtante al usar uso de millis y una maquina de estados. Se puede ver mejor en el codigo y en el video.
+
+Por el lado de LCD de animaciones es mucho mas complejo de implementar con millis, por lo que se dejo asi por el momento hasta que tengamos mas conocimiento como hacer uso de funciones asincronicas con un solo maestro.
+
+#### Texto sencillo
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Hello World](https://www.tinkercad.com/things/cIjcsSK1FTP-laboratorio-4-liquid-crystal-display-lcd-hello-world?sharecode=g8UwlarT3QCvULCgqoQ0eayPNNs1qK-MCkgNnNc4xHk)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
+#### Texto scrolling
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Autoscroll](https://www.tinkercad.com/things/cih2mpGdvnV-laboratorio-4-liquid-crystal-display-lcd-autoscroll?sharecode=WtUM4_9ktNBCt_ETgbniWzJcT_eFNPF8749XIPibCFY)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
+
+#### Animaciones
+
+Diseño y codigo LCD normal: [Laboratorio #4 - Liquid Crystal Display (LCD) Casino](https://www.tinkercad.com/things/dqve9ozAi33-laboratorio-4-liquid-crystal-display-lcd-casino?sharecode=3_SfphVUupbPQ_M8Ji9SK-Rcx6fAe9pp9RoYP-7b-BE)
+
+Diseño y codigo LCD I2C: [Laboratorio #5 - Arduino LCD I2C 3 leds](https://www.tinkercad.com/things/3ak9taXIvaF-laboratorio-5-arduino-lcd-i2c-3-leds?sharecode=AHoXLpBPg6qnkTKg0Dd6PVaCOfvxm3K15Y1JRLvMJJw)
+
 
 ## Investigación del Jackpot
 
