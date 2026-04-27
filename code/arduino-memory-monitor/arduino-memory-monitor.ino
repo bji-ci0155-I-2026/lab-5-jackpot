@@ -8,19 +8,6 @@
  *   - Flash (programa): total, usado por bootloader, disponible para usuario
  *   - SRAM: total, usada (estática + heap), libre (entre heap y stack)
  *   - EEPROM: total, bytes escritos (no 0xFF), integridad básica
- *
- * Buenas prácticas aplicadas:
- *   - Strings en Flash con F() para no consumir SRAM
- *   - Constantes con constexpr en lugar de #define
- *   - Tipos de ancho fijo (uint8_t, uint16_t, uint32_t)
- *   - Sin allocación dinámica (malloc/new)
- *   - Funciones pequeñas con responsabilidad única
- *   - Volatile donde corresponde (acceso a símbolos del linker)
- *   - Watchdog deshabilitado explícitamente para diagnóstico
- *
- * Hardware: Arduino Uno R3 / ATmega328P @ 16 MHz
- * Autor:    Generado con Claude (Anthropic)
- * Licencia: MIT
  * =============================================================================
  */
 
